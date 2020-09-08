@@ -32,7 +32,7 @@ To understand multi label classification, first we have to understand multi clas
 
 ### Data Collection and Preprocessing
 
-For data collection, we used an image scraper to download 100 images of each of our ingredients. Since we had little time and we wanted to train a shorter model, we decided to make the model simpler by grouping some ingredients like apples and oranges into categories like fruit. Then we had to resize the input pictures to a supported size, 224x224 and we had to change all the file extensions to .jpg and change the names so they were easier to read. We wrote a python script that did this for us which is included in our repository. Next, we had to create a .csv file with the true labels if each category that we had, for example the fruits category had pictures of apples and oranges, so we would put a 1 under the labels apples and oranges and a 0 everywhere else. We had to make this .csv file by hand. Finally, we performed data augmentation to increase our data from 100 to 250 images and to increase variability in images by using random rotations, zooming, etc.
+For data collection, we used an image scraper to download 100 images of each of our ingredients. Since we had little time and we wanted to train a shorter model, we decided to make the model simpler by grouping some ingredients like apples and oranges into categories like fruit. Then we had to resize the input pictures to a supported size, 224x224 and we had to change all the file extensions to .jpg and change the names so they were easier to read. We wrote a python script that did this for us which is included in our repository. Next, we had to create a .csv file with the true labels if each category that we had, for example the fruits category had pictures of apples and oranges, so we would put a 1 under the labels apples and oranges and a 0 everywhere else. Our csv file is a combination of single and double label classes to test that our model can output multiple labels at once. Finally, we performed data augmentation to increase our data from 100 to 250 images and to increase variability in images by using random rotations, zooming, etc.  
 
 ![multi-label classification image](images/unknown.jpg)
 
@@ -58,3 +58,31 @@ Transfer learning is a method used to retrain your model on the pretrained weigh
 ![multi-label classification image](images/resnet.png)
 
 *model layout of ResNet*
+
+### What are our Results?
+
+Our first result is the pretrained model itself as well as the accuracy and loss values recorded which are depicted below. The accuracy goes up while the loss goes down as expected, but the values are unusually high for accuracy and low for loss.
+
+![multi-label classification image](images/accuracyloss.jpg)
+
+Our other results included our test images and our examples are shown below. There were three things we tested for when testing our model…
+1. Single label images - Did our model recognize images containing one label 
+2. Double label images - DId or models recognize images we trained with two ingredients 
+3. More than two label images - Is our model able to recognize the ingredients in a combination it was not trained with, we looked for more than two labels since    we showed the model an image with more than two ingredients
+Both single and double image tests were just to make sure that our model’s training was successful.
+
+Below are our single and double image tests that correctly predicted what was shown in the image. The reason for the specific combination of ingredients is due to how our .csv file was structured which paired those ingredients together.
+
+![multi-label classification image](images/workingresults.jpg)
+
+Below are some of the images that did not work and created unexpected results and show what went wrong with our model.
+
+![multi-label classification image](images/notworkingresults.jpg)
+![multi-label classification image](images/fullfridge.jpg)
+
+The first image depicts only chicken breast and raw pork but our model added the label carrot as well. We assume it did this because of the green herbs and the orange spices in the image. Although the image did not contain carrots, this result showed us it was possible for our model to output more than two labels and output them in a way the model was not trained on.
+
+The second image depicts chicken breast and broccoli but our model predicted that broccoli and carrots were in the image. We suspect this had something to do with how the image identified broccoli over chicken breast and then assumed since broccoli is in the image, carrots must be too.
+
+The third image is our strangest result as our model predicted that an image with all of our ingredients contained none of those ingredients. Although with our previous result we know the model can output more than one label and recognizes all of our ingredients separately well, it cannot recognize any in this image.
+
