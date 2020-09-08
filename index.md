@@ -86,3 +86,23 @@ The second image depicts chicken breast and broccoli but our model predicted tha
 
 The third image is our strangest result as our model predicted that an image with all of our ingredients contained none of those ingredients. Although with our previous result we know the model can output more than one label and recognizes all of our ingredients separately well, it cannot recognize any in this image.
 
+### What Does This Mean?
+
+The results from the broccoli, chicken, and pork images shows that our model is built correctly, it is able to output three labels without being trained on images corresponding to those labels. So the model itself is capable of multi-label classification
+The results of the broccoli and chicken image shows what went wrong with our model, the data set, since we trained broccoli and carrots together it recognized broccoli and assumed carrots would be in there too. The error in our data set can be seen with the fridge image as well. Since the model had no predictions we know it did not recognize any ingredient, although it has been able to before, this along with the fact we have a very high training accuracy and a very low loss,  leads us to believe that the model is overfitting. Since no ingredient matched the ingredients in the data close enough, the model gives no prediction
+One other important thing to note is the size of an object, in our data set our ingredients are the only thing in the pictures. So relative to the size of the image it is fairly large, while with the fridge image they are way smaller. We know the model has the ability to recognize broccoli alone as seen in the broccoli and chicken image but the same can be said about chicken. So why did the model predict broccoli with a higher probability? We assume it is because in that image, broccoli is the larger object and as a result of overiffing, the model assumes carrots must be the second object.
+
+### Future Work and Improvements
+
+We want to create a larger database of the 8 ingredients we have now to address our overfitting and create a more accurate model. We would also want to train a lot more ingredients, so that our model can detect many more different types of foods. We would also like to create our own model from scratch. This could be beneficial for accuracy, as we feel the weights are way too generalized for the pretrained model we used. We would like to improve the model to be able to classify foods from videos, this one wouldn't be too hard to implement, we just need more time. One real world implementation of our model could be an app on your phone that automatically updates a list of items in your fridge by using an in fridge camera.
+
+![multi-label classification image](images/foooooood.jpg)
+
+### Acknowledgements and References
+
+The image scraper we used to collect images for our data set is located at this link :
+https://github.com/ultralytics/google-images-download
+We used a python library called Augmentor as well as a code uploaded on the repository to conduct our data augmentation
+We used a python script code to process all of our images and resize and name them which is also included on the repository
+To construct our model, we imported a Keras library and the ResNet50 model from that library
+Our dataset and our final trained model are located in this google drive: https://drive.google.com/drive/folders/1cCY2tgEeiMrYNJjpu8WALDqKy0FRomyY?usp=sharing
