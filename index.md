@@ -6,7 +6,7 @@ The main focus of our project was to create a machine learning model with multi-
 
 Obviously, this sort of idea is useless on its own, but the possible implementations could be hugely advantageous. Given just a weeks time, we just wanted to create the basis for such a project, which is the multi label classification. We trained chicken breasts, raw pork, milk, oranges, apples, bread, carrots, and broccoli.
 
-![Image of fridge](fridge.jpg)
+![Image of fridge](Images/fridge.jpg)
 
 *Image of fridge with the 8 ingredients we wanted to train*
 
