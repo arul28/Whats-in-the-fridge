@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Welcome to GPages
 
 You can use the [editor on GitHub](https://github.com/arul28/Whats-in-the-fridge/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
