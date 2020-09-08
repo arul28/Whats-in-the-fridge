@@ -1,6 +1,0 @@
-item,apple,bread,broccoli,carrot,chicken,milk,orange,pork
-apple_and_orange,1,0,0,0,0,0,1,0
-milk,0,0,0,0,0,1,0,0
-packaged_bread,0,1,0,0,0,0,0,0
-raw_broccoli_and_raw_carrot,0,0,1,1,0,0,0,0
-raw_chicken_and_raw_pork,0,0,0,0,1,0,0,1
