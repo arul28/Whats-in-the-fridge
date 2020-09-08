@@ -48,3 +48,13 @@ We used a CNN to make our model.CNN or Convolutional Neural Networks are a multi
 ![multi-label classification image](images/cnngif.gif)
 
 *Visual representations of CNN models*
+
+### How Did We Make Our Model?
+
+We decided to use the ResNet50 model because we needed a comprehensive model unlike shorter models like vgg16 and ResNet has very good object recognition. You can see a model layout of ResNet below. We removed the last layer from the model to add our own so that we can change the number of outputs to make the model a multilabel classifier. We added both a final dense layer and an output layer using sigmoid activation with 8 outputs. Sigmoid activation makes each output a probability between 0 and 1 for each label allowing our model to decide if each ingredient is a 1 or 0 (in the image or not). Finally, we applied transfer learning when training our model.
+
+Transfer learning is a method used to retrain your model on the pretrained weights. Using this method improves accuracy in some cases and decreases training time. Another feature on transfer learning is the ability to unfreeze some layers so that the learned weights in those layers can be retrained on your own data, this is helpful when the accuracy is lower than the targeted accuracy. We kept most of the layers frozen because the object detection of the pretrained model is really good, and we wanted to preserve that. We unfroze the last few layers because we felt that the pretrained models weights in the last few layers were overgeneralizing causing our testing predictions to be wrong. This increased our accuracy and improved test results by a lot.
+
+![multi-label classification image](images/resnet.png)
+
+*model layout of ResNet*
