@@ -37,3 +37,14 @@ For data collection, we used an image scraper to download 100 images of each of 
 ![multi-label classification image](images/unknown.jpg)
 
 *The CSV file we used*
+
+### What Type of Neural Network Did We Use?
+
+We used a CNN to make our model.CNN or Convolutional Neural Networks are a multi dimensional extension of Neural Networks. They extract features, which are low dimensional, data from the images. A CNN utilizes the kernel or a filter to perform multiplication and summation on a larger matrix. Kernels shift incrementally along all axes of the matrix to compose a new output matrix composed of the values of the operation. CNNS are primarily used for image based tasks such as recognition or classification
+
+![multi-label classification image](images/cnn.jpg)
+
+
+![multi-label classification image](images/cnngif.gif)
+
+*Visual representations of CNN models*
