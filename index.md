@@ -101,8 +101,12 @@ We want to create a larger database of the 8 ingredients we have now to address 
 ### Acknowledgements and References
 
 The image scraper we used to collect images for our data set is located at this link :
+
 https://github.com/ultralytics/google-images-download
-We used a python library called Augmentor as well as a code uploaded on the repository to conduct our data augmentation
-We used a python script code to process all of our images and resize and name them which is also included on the repository
-To construct our model, we imported a Keras library and the ResNet50 model from that library
-Our dataset and our final trained model are located in this google drive: https://drive.google.com/drive/folders/1cCY2tgEeiMrYNJjpu8WALDqKy0FRomyY?usp=sharing
+
+We used a python library called Augmentor as well as a code uploaded on the repository to conduct our data augmentation.
+We used a python script code to process all of our images and resize and name them which is also included on the repository.
+To construct our model, we imported a Keras library and the ResNet50 model from that library.
+Our dataset and our final trained model are located in this google drive: 
+
+https://drive.google.com/drive/folders/1cCY2tgEeiMrYNJjpu8WALDqKy0FRomyY?usp=sharing
