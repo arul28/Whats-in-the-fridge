@@ -20,34 +20,20 @@ To understand multi label classification, first we have to understand multi clas
 
 *Visual representation of multi-label classification*
 
-### Markdown
+### Overview of our Method:
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+1. We started by getting a list of the items we thought would be in the average fridge. We selected a small list of 8 ingredients, chicken breast, raw pork, milk, oranges, apples, bread, carrots, and broccoli. 
 
-```markdown
-Syntax highlighted code block
+2. We had to preprocess our images so we could input them into our model. We also used data augmentation on our images, by flipping and rotating them, to create a larger dataset for our model to be trained.
 
-# Header 1
-## Header 2
-### Header 3
+3. We then coded our model and modified it so that it supports multilabel classification. We used transfer learning to fit the model better to our specific dataset.
 
-- Bulleted
-- List
+4. Finally after training, we saved our model and tested it on images taken from our fridges.
 
-1. Numbered
-2. List
+### Data Collection and Preprocessing
 
-**Bold** and _Italic_ and `Code` text
+For data collection, we used an image scraper to download 100 images of each of our ingredients. Since we had little time and we wanted to train a shorter model, we decided to make the model simpler by grouping some ingredients like apples and oranges into categories like fruit. Then we had to resize the input pictures to a supported size, 224x224 and we had to change all the file extensions to .jpg and change the names so they were easier to read. We wrote a python script that did this for us which is included in our repository. Next, we had to create a .csv file with the true labels if each category that we had, for example the fruits category had pictures of apples and oranges, so we would put a 1 under the labels apples and oranges and a 0 everywhere else. We had to make this .csv file by hand. Finally, we performed data augmentation to increase our data from 100 to 250 images and to increase variability in images by using random rotations, zooming, etc.
 
-[Link](url) and ![Image](src)
-```
+![multi-label classification image](images/unknown.jpg)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/arul28/Whats-in-the-fridge/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+*The CSV file we used*
