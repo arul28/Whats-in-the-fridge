@@ -1,4 +1,4 @@
-## Honey! What's in the fridge!!!
+## Honey! What's in the fridge?
 
 What if there was an easier way to know what’s in your fridge?
 
