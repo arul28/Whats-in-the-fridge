@@ -1,8 +1,10 @@
-## Welcome to GPages
+## Honey! What's in the fridge!!!
 
-You can use the [editor on GitHub](https://github.com/arul28/Whats-in-the-fridge/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+What if there was an easier way to know what’s in your fridge?
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The main focus of our project was to create a machine learning model with multi-label classification that could recognize everything in our fridge with just a picture. 
+
+Obviously, this sort of idea is useless on its own, but the possible implementations could be hugely advantageous. Given just a weeks time, we just wanted to create the basis for such a project, which is the multi label classification. We trained chicken breasts, raw pork, milk, oranges, apples, bread, carrots, and broccoli.
 
 ### Markdown
 
