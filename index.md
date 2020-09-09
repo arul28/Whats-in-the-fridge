@@ -40,7 +40,7 @@ For data collection, we used an image scraper to download 100 images of each of 
 
 ### What Type of Neural Network Did We Use?
 
-We used a CNN to make our model.CNN or Convolutional Neural Networks are a multi dimensional extension of Neural Networks. They extract features, which are low dimensional, data from the images. A CNN utilizes the kernel or a filter to perform multiplication and summation on a larger matrix. Kernels shift incrementally along all axes of the matrix to compose a new output matrix composed of the values of the operation. CNNS are primarily used for image based tasks such as recognition or classification
+We used a CNN to make our model. CNN or Convolutional Neural Networks are a multi dimensional extension of Neural Networks. They extract features, which are low dimensional data from the images. A CNN utilizes a kernel or a filter to perform multiplication and summation on a larger matrix. The kernels shift incrementally along all axes of the matrix to compose a new output matrix composed of the values of the operation. CNNS are primarily used for image based tasks such as recognition or classification
 
 ![multi-label classification image](images/cnn.jpg)
 
@@ -51,9 +51,9 @@ We used a CNN to make our model.CNN or Convolutional Neural Networks are a multi
 
 ### How Did We Make Our Model?
 
-We decided to use the ResNet50 model because we needed a comprehensive model unlike shorter models like vgg16 and ResNet has very good object recognition. You can see a model layout of ResNet below. We removed the last layer from the model to add our own so that we can change the number of outputs to make the model a multilabel classifier. We added both a final dense layer and an output layer using sigmoid activation with 8 outputs. Sigmoid activation makes each output a probability between 0 and 1 for each label allowing our model to decide if each ingredient is a 1 or 0 (in the image or not). Finally, we applied transfer learning when training our model.
+We decided to use the ResNet50 model because we needed a comprehensive model unlike shorter models like VGG16 and because ResNet50 has very good object recognition due to it being trained on the ImageNet database. You can see a model layout of ResNet below. We removed the last layer from the model to add our own so that we can change the number of outputs to make the model a multilabel classifier. We added both a final dense layer and an output layer using sigmoid activation with 8 outputs. Sigmoid activation makes each output a probability between 0 and 1 allowing our model to decide if each ingredient is a 1 or 0 (in the image or not). Finally, we applied transfer learning when training our model.
 
-Transfer learning is a method used to retrain your model on the pretrained weights. Using this method improves accuracy in some cases and decreases training time. Another feature on transfer learning is the ability to unfreeze some layers so that the learned weights in those layers can be retrained on your own data, this is helpful when the accuracy is lower than the targeted accuracy. We kept most of the layers frozen because the object detection of the pretrained model is really good, and we wanted to preserve that. We unfroze the last few layers because we felt that the pretrained models weights in the last few layers were overgeneralizing causing our testing predictions to be wrong. This increased our accuracy and improved test results by a lot.
+Transfer learning is a method used to retrain your model on the pretrained weights. Using this method improves accuracy in some cases and decreases training time. Another feature in transfer learning is the ability to unfreeze some layers so that the learned weights in those layers can be retrained on your own data, this is helpful when the accuracy is lower than the targeted accuracy. We kept most of the layers frozen because the object detection of the pretrained model is really good, and we wanted to preserve that. We unfroze the last few layers because we felt that the pretrained models weights in the last few layers were overgeneralizing, causing our testing predictions to be wrong. This increased our accuracy and improved test results by a lot.
 
 ![multi-label classification image](images/resnet.png)
 
@@ -61,7 +61,7 @@ Transfer learning is a method used to retrain your model on the pretrained weigh
 
 ### What are our Results?
 
-Our first result is the pretrained model itself as well as the accuracy and loss values recorded which are depicted below. The accuracy goes up while the loss goes down as expected, but the values are unusually high for accuracy and low for loss.
+Our first result is the pretrained model itself as well as the accuracy and loss values recorded which are depicted below. The train accuracy goes up while the train loss goes down as expected, but the values are unusually high for accuracy and low for loss. This, along with the wildly varying validation loss indicates that our model is overfitting severely.
 
 ![multi-label classification image](images/accuracyloss.jpg)
 
@@ -80,7 +80,7 @@ Below are some of the images that did not work and created unexpected results an
 ![multi-label classification image](images/notworkingresults.jpg)
 ![multi-label classification image](images/fullfridge.jpg)
 
-The first image depicts only chicken breast and raw pork but our model added the label carrot as well. We assume it did this because of the green herbs and the orange spices in the image. Although the image did not contain carrots, this result showed us it was possible for our model to output more than two labels and output them in a way the model was not trained on.
+The first image depicts only chicken breast and raw pork but our model added the label carrot as well. We assume it did this because of the green herbs and the orange spices in the image. Although the image did not contain carrots, this result showed us it was possible for our model to output more than two labels and output them in a way the model was not trained on. This means that our model itself was successful.
 
 The second image depicts chicken breast and broccoli but our model predicted that broccoli and carrots were in the image. We suspect this had something to do with how the image identified broccoli over chicken breast and then assumed since broccoli is in the image, carrots must be too.
 
@@ -104,9 +104,8 @@ The image scraper we used to collect images for our data set is located at this 
 
 https://github.com/ultralytics/google-images-download
 
-We used a python library called Augmentor as well as a code uploaded on the repository to conduct our data augmentation.
-We used a python script code to process all of our images and resize and name them which is also included on the repository.
-To construct our model, we imported a Keras library and the ResNet50 model from that library.
+We used several python libraries including Keras, Tensorflow, Pandas, and Augmentor to do data augmentation. The code for the data augmentation is in the repository.
+We used a python script to process all of our images and resize and name them which is also included in the repository.
 Our dataset and our final trained model are located in this google drive: 
 
 https://drive.google.com/drive/folders/1cCY2tgEeiMrYNJjpu8WALDqKy0FRomyY?usp=sharing
